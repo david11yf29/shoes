@@ -1,3 +1,7 @@
+:root {
+    --primary: #f84848;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,16 +13,13 @@ body {
     background-color: #efefef;
 }
 
-.shoe, .logo{
-    display: none;
-}
-
 .container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
+    overflow: hidden;
 }
 
 .card {
@@ -50,10 +51,11 @@ body {
 
 .gradient {
     position: absolute;
-    width: 100%;
+    width: 0%;
     height: 100%;
     left: 0;
     top: 0;
+    z-index: -2;
 }
 
 /* attribute selector */
@@ -62,7 +64,9 @@ body {
 }
 
 .gradient[color="red"] {
-    background-image: linear-gradient(45deg, #d62926, #ee625f)
+    background-image: linear-gradient(45deg, #d62926, #ee625f);
+    width: 100%;
+    z-index: 0;
 }
 
 .gradient[color="green"] {
@@ -75,6 +79,60 @@ body {
 
 .gradient[color="black"] {
     background-image: linear-gradient(45deg, #111, #666)
+}
+
+.logo {
+    position: absolute;
+    width: 100px;
+    left: 20px;
+    top: 20px;
+}
+
+.share {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--primary);
+    transition: 0.5s;
+}
+
+.share:hover {
+    transform: scale(1.1);
+}
+
+.share i {
+    line-height: 50px;
+}
+
+.nike {
+    position: absolute;
+    top: 85px;
+    left: 15px;
+    font-size: 11rem;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: white;
+    opacity: 0.1;
+}
+
+.shoe {
+    position: absolute;
+    width: 140%;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-20deg);
+}
+
+.shoe.show {
+    opacity: 1;
 }
 
 .info {
