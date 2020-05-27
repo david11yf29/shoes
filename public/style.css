@@ -250,6 +250,7 @@ body {
 
 .size-container {
     padding: 10px 0;
+    margin-bottom: 10px;
 }
 
 .sizes {
@@ -274,4 +275,16 @@ body {
 
 .size.active {
     background-color: var(--primary);
+    color: #fff;
+}
+
+.buy-price {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    
 }
