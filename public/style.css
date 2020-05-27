@@ -1,5 +1,5 @@
 :root {
-    --primary: #f84848;
+    --primary: #2175f5;
 }
 
 * {
@@ -51,7 +51,7 @@ body {
 
 .gradient {
     position: absolute;
-    width: 0%;
+    width: 100%;
     height: 100%;
     left: 0;
     top: 0;
@@ -60,13 +60,12 @@ body {
 
 /* attribute selector */
 .gradient[color="blue"] {
-    background-image: linear-gradient(45deg, #0136af, #22abfa)
+    background-image: linear-gradient(45deg, #0136af, #22abfa);
+    z-index: 0;
 }
 
 .gradient[color="red"] {
     background-image: linear-gradient(45deg, #d62926, #ee625f);
-    width: 100%;
-    z-index: 0;
 }
 
 .gradient[color="green"] {
@@ -311,9 +310,14 @@ body {
     letter-spacing: 1px;
     font-weight: 500;
     font-size: 1.1rem;
+    transition: 0.5s;
+}
+
+.buy:hover {
+    transform: scale(1.1);
 }
 
 .buy i {
-    
+    margin-right: 2px;
 }
 
