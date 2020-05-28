@@ -58,10 +58,31 @@ body {
     z-index: -2;
 }
 
+
+/* ////////////////////////////// */
+/* 以下兩個教學如何使用 animation */
+.first {
+    z-index: 0;
+    animation: 1s width ease;
+}
+
+@keyframes width {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+/* ////////////////////////////// */
+
+.second {
+    z-index: -1;
+}
+
 /* attribute selector */
 .gradient[color="blue"] {
     background-image: linear-gradient(45deg, #0136af, #22abfa);
-    z-index: 0;
 }
 
 .gradient[color="red"] {
@@ -128,6 +149,7 @@ body {
     bottom: 0;
     right: 0;
     transform: rotate(-20deg);
+    transition: 0.5s;
 }
 
 .shoe.show {
