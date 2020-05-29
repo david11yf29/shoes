@@ -4,8 +4,11 @@ const shoes = document.querySelectorAll('.shoe');
 // console.log(shoes);
 const gradients = document.querySelectorAll('.gradient');
 // console.log(gradients);
+const shoeBg = document.querySelector('.shoeBackground');
+// console.log(shoeBg);
 
-let prevColor = "blue"
+let prevColor = "blue";
+let animationEnd = true;
 
 function changeSize() {
     sizes.forEach(size => size.classList.remove('active'));
@@ -13,6 +16,7 @@ function changeSize() {
 }
 
 function changeColor() {
+    if(!animationEnd) return;
     // 先去抓取 primary="#456123" primary 裡面的 hexcode
     let primary = this.getAttribute('primary');
     let color = this.getAttribute('color');
@@ -36,7 +40,25 @@ function changeColor() {
 
     prevColor = color;
     animationEnd = false; 
+
+    gradient.addEventListener('animationend', () => {
+        animationEnd = true;
+    })
 }
 
 sizes.forEach(size => size.addEventListener('click', changeSize));
 colors.forEach(color => color.addEventListener('click', changeColor));
+
+let x = window.matchMedia("(max-width: 1000px)");
+
+function changeHeight() {
+    if (x.matches) {
+        // shoes 表示此 NodeList, 我們要第一個 [0] 的高度 
+        let shoeHeight = shoes[0].offsetHeight;
+        shoeBg.style.height = `${shoeHeight * 0.9}px`;
+    } else {
+        shoeBg.style.height = "475px";
+    }
+}
+
+window.addEventListener('resize', changeHeight);
